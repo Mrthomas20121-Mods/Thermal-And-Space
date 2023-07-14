@@ -1,0 +1,30 @@
+modLoader = "javafml"
+loaderVersion = "[40,)"
+license = "MIT License"
+issueTrackerURL = "https://github.com/Mrthomas20121/ThermalExtra/issues"
+
+[[mods]]
+modId = "thermal_and_space"
+version = "1.0.0"
+displayName = "Thermal And Space"
+displayURL = "https://www.curseforge.com/minecraft/mc-mods/thermal_and_space"
+#logoFile="tinkers_reforged_logo.png"
+credits = "Team CoFH"
+authors = "Mrthomas20121"
+description = '''
+Compat between Ad Astra and Thermal Expansion.
+'''
+
+[[dependencies.thermal_and_space]]
+    modId = "forge"
+    mandatory = true
+    versionRange = "[43.1.1,)"
+    ordering = "NONE"
+    side = "BOTH"
+
+[[dependencies.thermal_and_space]]
+    modId = "minecraft"
+    mandatory = true
+    versionRange = "[1.19.2,)"
+    ordering = "NONE"
+    side = "BOTH"
