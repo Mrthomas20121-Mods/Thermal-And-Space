@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "thermal_and_space:block/mercury_sulfur_ore"
+    }
+  }
+}

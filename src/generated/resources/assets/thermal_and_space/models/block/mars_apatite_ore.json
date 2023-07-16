@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "thermal_and_space:block/mars_apatite_ore"
+  }
+}

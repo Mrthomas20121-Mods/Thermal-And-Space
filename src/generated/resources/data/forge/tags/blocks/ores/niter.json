@@ -1,0 +1,9 @@
+{
+  "values": [
+    "thermal_and_space:glacio_niter_ore",
+    "thermal_and_space:mars_niter_ore",
+    "thermal_and_space:mercury_niter_ore",
+    "thermal_and_space:moon_niter_ore",
+    "thermal_and_space:venus_niter_ore"
+  ]
+}
