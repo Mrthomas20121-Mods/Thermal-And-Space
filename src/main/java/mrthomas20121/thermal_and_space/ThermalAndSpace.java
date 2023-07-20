@@ -1,11 +1,12 @@
 package mrthomas20121.thermal_and_space;
 
-import mrthomas20121.thermal_and_space.datagen.SpaceBlockStateProvider;
-import mrthomas20121.thermal_and_space.datagen.SpaceItemModelProvider;
-import mrthomas20121.thermal_and_space.datagen.SpaceLangProvider;
-import mrthomas20121.thermal_and_space.datagen.SpaceTagsProvider;
+import com.google.gson.JsonElement;
+import com.mojang.serialization.JsonOps;
+import mrthomas20121.thermal_and_space.datagen.*;
 import mrthomas20121.thermal_and_space.init.ThermalSpaceBlocks;
+import net.minecraft.core.RegistryAccess;
 import net.minecraft.data.DataGenerator;
+import net.minecraft.resources.RegistryOps;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.data.event.GatherDataEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -33,6 +34,7 @@ public class ThermalAndSpace {
 	public static void gatherData(final GatherDataEvent event) {
 		DataGenerator gen = event.getGenerator();
 		ExistingFileHelper fileHelper = event.getExistingFileHelper();
+		RegistryOps<JsonElement> regOps = RegistryOps.create(JsonOps.INSTANCE, RegistryAccess.builtinCopy());
 
 		// server providers
 		SpaceTagsProvider.Block block = new SpaceTagsProvider.Block(gen, fileHelper);
@@ -43,5 +45,8 @@ public class ThermalAndSpace {
 		gen.addProvider(event.includeClient(), new SpaceLangProvider(gen));
 		gen.addProvider(event.includeClient(), new SpaceBlockStateProvider(gen, fileHelper));
 		gen.addProvider(event.includeClient(), new SpaceItemModelProvider(gen, fileHelper));
+
+		gen.addProvider(event.includeServer(), SpaceFeatures.dataGenFeatures(gen, fileHelper, regOps));
+		gen.addProvider(event.includeServer(), SpaceBiomeModifiers.dataGenBiomeModifiers(gen, fileHelper, regOps));
 	}
 }

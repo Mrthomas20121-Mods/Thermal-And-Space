@@ -9,18 +9,22 @@ import net.minecraft.world.level.block.Block;
 import java.util.Locale;
 
 public enum ThermalOre {
-    APATITE,
-    CINNABAR,
-    LEAD,
-    NICKEL,
-    NITER,
-    RUBY,
-    SAPPHIRE,
-    SILVER,
-    SULFUR,
-    TIN;
+    APATITE(AstraStone.MOON, AstraStone.MARS, AstraStone.VENUS),
+    CINNABAR(AstraStone.MOON, AstraStone.MARS, AstraStone.VENUS),
+    LEAD(AstraStone.VENUS, AstraStone.GLACIO, AstraStone.MARS),
+    NICKEL(AstraStone.MERCURY, AstraStone.MOON),
+    NITER(AstraStone.MERCURY, AstraStone.GLACIO, AstraStone.MOON),
+    RUBY(AstraStone.MARS, AstraStone.VENUS, AstraStone.MOON),
+    SAPPHIRE(AstraStone.MERCURY, AstraStone.VENUS),
+    SILVER(AstraStone.MOON, AstraStone.MARS, AstraStone.MERCURY, AstraStone.VENUS),
+    SULFUR(AstraStone.MARS, AstraStone.MERCURY),
+    TIN(AstraStone.MOON, AstraStone.MERCURY, AstraStone.VENUS, AstraStone.MARS, AstraStone.GLACIO);
 
-    ThermalOre() {}
+    private final AstraStone[] stones;
+
+    ThermalOre(AstraStone... stones) {
+        this.stones = stones;
+    }
 
     public String getOreName(String stone) {
         return "%s_%s_ore".formatted(stone, this.name().toLowerCase(Locale.ROOT));
@@ -53,6 +57,9 @@ public enum ThermalOre {
                 return BlockTagsCoFH.ORES_SILVER;
             }
             case SULFUR -> {
+                return BlockTagsCoFH.ORES_SULFUR;
+            }
+            case TIN -> {
                 return BlockTagsCoFH.ORES_TIN;
             }
             default -> {
@@ -88,11 +95,18 @@ public enum ThermalOre {
                 return ItemTagsCoFH.ORES_SILVER;
             }
             case SULFUR -> {
+                return ItemTagsCoFH.ORES_SULFUR;
+            }
+            case TIN -> {
                 return ItemTagsCoFH.ORES_TIN;
             }
             default -> {
                 return null;
             }
         }
+    }
+
+    public AstraStone[] getStones() {
+        return stones;
     }
 }

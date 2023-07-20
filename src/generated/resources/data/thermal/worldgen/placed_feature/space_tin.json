@@ -1,0 +1,80 @@
+{
+  "feature": {
+    "type": "minecraft:ore",
+    "config": {
+      "discard_chance_on_air_exposure": 0.0,
+      "size": 9,
+      "targets": [
+        {
+          "state": {
+            "Name": "thermal_and_space:moon_tin_ore"
+          },
+          "target": {
+            "predicate_type": "minecraft:tag_match",
+            "tag": "ad_astra:moon_ore_replaceables"
+          }
+        },
+        {
+          "state": {
+            "Name": "thermal_and_space:mercury_tin_ore"
+          },
+          "target": {
+            "predicate_type": "minecraft:tag_match",
+            "tag": "ad_astra:mercury_ore_replaceables"
+          }
+        },
+        {
+          "state": {
+            "Name": "thermal_and_space:venus_tin_ore"
+          },
+          "target": {
+            "predicate_type": "minecraft:tag_match",
+            "tag": "ad_astra:venus_ore_replaceables"
+          }
+        },
+        {
+          "state": {
+            "Name": "thermal_and_space:mars_tin_ore"
+          },
+          "target": {
+            "predicate_type": "minecraft:tag_match",
+            "tag": "ad_astra:mars_ore_replaceables"
+          }
+        },
+        {
+          "state": {
+            "Name": "thermal_and_space:glacio_tin_ore"
+          },
+          "target": {
+            "predicate_type": "minecraft:tag_match",
+            "tag": "ad_astra:glacio_ore_replaceables"
+          }
+        }
+      ]
+    }
+  },
+  "placement": [
+    {
+      "type": "minecraft:count",
+      "count": 6
+    },
+    {
+      "type": "minecraft:in_square"
+    },
+    {
+      "type": "minecraft:biome"
+    },
+    {
+      "type": "minecraft:height_range",
+      "height": {
+        "type": "minecraft:trapezoid",
+        "max_inclusive": {
+          "absolute": 60
+        },
+        "min_inclusive": {
+          "absolute": -60
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "values": [
+    "thermal_and_space:glacio_sulfur_ore",
+    "thermal_and_space:mars_sulfur_ore",
+    "thermal_and_space:mercury_sulfur_ore",
+    "thermal_and_space:moon_sulfur_ore",
+    "thermal_and_space:venus_sulfur_ore"
+  ]
+}
