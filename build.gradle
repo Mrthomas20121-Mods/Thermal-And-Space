@@ -104,6 +104,10 @@ repositories {
         url 'https://maven.theillusivec4.top/'
     }
     maven {
+        name "Team Resourceful"
+        url "https://nexus.resourcefulbees.com/repository/maven-public/"
+    }
+    maven {
         name "cf"
         url "https://cursemaven.com/"
         content {
@@ -136,8 +140,11 @@ dependencies {
     implementation fg.deobf("com.teamcofh:thermal_foundation:${mc_version}-${thermal_foundation_version}.+")
     implementation fg.deobf("com.teamcofh:thermal_expansion:${mc_version}-${thermal_expansion_version}.+")
 
-    //implementation fg.deobf("slimeknights.tconstruct:TConstruct:${minecraft_version}-${tcon_version}")
-    //implementation fg.deobf("slimeknights.mantle:Mantle:${minecraft_version}-${mantle_version}")
+    implementation fg.deobf("earth.terrarium:botarium-forge-${mc_version}:${botarium_version}")
+    //implementation fg.deobf("earth.terrarium:ad_astra-forge-${mc_version}:${ad_astra_version}")
+    implementation fg.deobf("curse.maven:ad-astra-635042:${ad_astra_cf_version}")
+    implementation fg.deobf("com.teamresourceful.resourcefullib:resourcefullib-forge-${mc_version}:${resourcefullib_version}")
+    implementation fg.deobf("com.teamresourceful.resourcefulconfig:resourcefulconfig-forge-${mc_version}:${resourcefulconfig_version}")
 }
 
 jar {
