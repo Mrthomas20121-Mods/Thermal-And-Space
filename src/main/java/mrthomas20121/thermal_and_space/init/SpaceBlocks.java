@@ -17,7 +17,7 @@ import java.util.Locale;
 import java.util.Map;
 
 // credit to the tfc devs for the mapOfKeys methods
-public class ThermalSpaceBlocks {
+public class SpaceBlocks {
 
     public static DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, ThermalAndSpace.MOD_ID);
     public static DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, ThermalAndSpace.MOD_ID);

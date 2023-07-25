@@ -3,7 +3,7 @@ package mrthomas20121.thermal_and_space;
 import com.google.gson.JsonElement;
 import com.mojang.serialization.JsonOps;
 import mrthomas20121.thermal_and_space.datagen.*;
-import mrthomas20121.thermal_and_space.init.ThermalSpaceBlocks;
+import mrthomas20121.thermal_and_space.init.SpaceBlocks;
 import net.minecraft.core.RegistryAccess;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.resources.RegistryOps;
@@ -11,7 +11,6 @@ import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.data.event.GatherDataEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.apache.logging.log4j.LogManager;
@@ -26,8 +25,8 @@ public class ThermalAndSpace {
 
 	public ThermalAndSpace() {
 		IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
-		ThermalSpaceBlocks.BLOCKS.register(bus);
-		ThermalSpaceBlocks.ITEMS.register(bus);
+		SpaceBlocks.BLOCKS.register(bus);
+		SpaceBlocks.ITEMS.register(bus);
 	}
 
 	@SubscribeEvent
@@ -48,5 +47,6 @@ public class ThermalAndSpace {
 
 		gen.addProvider(event.includeServer(), SpaceFeatures.dataGenFeatures(gen, fileHelper, regOps));
 		gen.addProvider(event.includeServer(), SpaceBiomeModifiers.dataGenBiomeModifiers(gen, fileHelper, regOps));
+		gen.addProvider(event.includeServer(), new SpaceLoot(gen));
 	}
 }
