@@ -4,7 +4,7 @@ import cofh.lib.data.BlockStateProviderCoFH;
 import mrthomas20121.thermal_and_space.ThermalAndSpace;
 import mrthomas20121.thermal_and_space.init.AstraStone;
 import mrthomas20121.thermal_and_space.init.ThermalOre;
-import mrthomas20121.thermal_and_space.init.ThermalSpaceBlocks;
+import mrthomas20121.thermal_and_space.init.SpaceBlocks;
 import net.minecraft.data.DataGenerator;
 import net.minecraftforge.common.data.ExistingFileHelper;
 
@@ -23,12 +23,12 @@ public class SpaceBlockStateProvider extends BlockStateProviderCoFH {
 
             if(stone.isSand()) {
                 // oil shale
-                this.simpleBlock(ThermalSpaceBlocks.SAND_ORES.get(stone));
+                this.simpleBlock(SpaceBlocks.SAND_ORES.get(stone));
             }
 
             for(ThermalOre ore: ores) {
                 // other ores
-                this.simpleBlock(ThermalSpaceBlocks.ORES.get(stone).get(ore));
+                this.simpleBlock(SpaceBlocks.ORES.get(stone).get(ore));
             }
         }
     }

@@ -1,10 +1,9 @@
 package mrthomas20121.thermal_and_space.datagen;
 
-import cofh.lib.tags.ItemTagsCoFH;
 import mrthomas20121.thermal_and_space.ThermalAndSpace;
 import mrthomas20121.thermal_and_space.init.AstraStone;
 import mrthomas20121.thermal_and_space.init.ThermalOre;
-import mrthomas20121.thermal_and_space.init.ThermalSpaceBlocks;
+import mrthomas20121.thermal_and_space.init.SpaceBlocks;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.tags.BlockTagsProvider;
 import net.minecraft.data.tags.ItemTagsProvider;
@@ -28,15 +27,15 @@ public class SpaceTagsProvider {
             for(AstraStone stone : stones) {
 
                 if(stone.isSand()) {
-                    this.tag(BlockTags.MINEABLE_WITH_SHOVEL).add(ThermalSpaceBlocks.SAND_ORES.get(stone).get());
+                    this.tag(BlockTags.MINEABLE_WITH_SHOVEL).add(SpaceBlocks.SAND_ORES.get(stone).get());
                 }
 
                 for(ThermalOre ore: ores) {
 
-                    this.tag(BlockTags.MINEABLE_WITH_PICKAXE).add(ThermalSpaceBlocks.ORES.get(stone).get(ore).get());
+                    this.tag(BlockTags.MINEABLE_WITH_PICKAXE).add(SpaceBlocks.ORES.get(stone).get(ore).get());
 
                     if(ore.getBlockTagKey() != null) {
-                        this.tag(ore.getBlockTagKey()).add(ThermalSpaceBlocks.ORES.get(stone).get(ore).get());
+                        this.tag(ore.getBlockTagKey()).add(SpaceBlocks.ORES.get(stone).get(ore).get());
                     }
                 }
             }
@@ -58,7 +57,7 @@ public class SpaceTagsProvider {
 
                 for(ThermalOre ore: ores) {
                     if(ore.getItemTagKey() != null) {
-                        this.tag(ore.getItemTagKey()).add(ThermalSpaceBlocks.ORES.get(stone).get(ore).get().asItem());
+                        this.tag(ore.getItemTagKey()).add(SpaceBlocks.ORES.get(stone).get(ore).get().asItem());
                     }
                 }
             }

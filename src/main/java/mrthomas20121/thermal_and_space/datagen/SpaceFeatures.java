@@ -1,20 +1,15 @@
 package mrthomas20121.thermal_and_space.datagen;
 
 import com.google.gson.JsonElement;
-import earth.terrarium.ad_astra.AdAstra;
 import earth.terrarium.ad_astra.common.registry.ModBlocks;
 import mrthomas20121.thermal_and_space.ThermalAndSpace;
 import mrthomas20121.thermal_and_space.init.AstraStone;
 import mrthomas20121.thermal_and_space.init.ThermalOre;
-import mrthomas20121.thermal_and_space.init.ThermalSpaceBlocks;
-import net.minecraft.core.Holder;
+import mrthomas20121.thermal_and_space.init.SpaceBlocks;
 import net.minecraft.core.Registry;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.resources.RegistryOps;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.level.levelgen.VerticalAnchor;
-import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
-import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.configurations.OreConfiguration;
 import net.minecraft.world.level.levelgen.placement.*;
 import net.minecraft.world.level.levelgen.structure.templatesystem.BlockMatchTest;
@@ -26,7 +21,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import static cofh.lib.util.constants.ModIds.ID_THERMAL;
 import static cofh.lib.util.helpers.DatapackHelper.datapackProvider;
 import static cofh.thermal.lib.FeatureHelper.createOreFeature;
 
@@ -58,9 +52,9 @@ public class SpaceFeatures {
         createOreFeature(featureMap, getOreReplacements(ThermalOre.NICKEL), "space_nickel", 4, -40, 120, 8);
 
         createOreFeature(featureMap, List.of(
-                OreConfiguration.target(new BlockMatchTest(ModBlocks.MOON_SAND.get()), ThermalSpaceBlocks.SAND_ORES.get(AstraStone.MOON).get().defaultBlockState()),
-                OreConfiguration.target(new BlockMatchTest(ModBlocks.MARS_SAND.get()), ThermalSpaceBlocks.SAND_ORES.get(AstraStone.MARS).get().defaultBlockState()),
-                OreConfiguration.target(new BlockMatchTest(ModBlocks.VENUS_SAND.get()), ThermalSpaceBlocks.SAND_ORES.get(AstraStone.VENUS).get().defaultBlockState())
+                OreConfiguration.target(new BlockMatchTest(ModBlocks.MOON_SAND.get()), SpaceBlocks.SAND_ORES.get(AstraStone.MOON).get().defaultBlockState()),
+                OreConfiguration.target(new BlockMatchTest(ModBlocks.MARS_SAND.get()), SpaceBlocks.SAND_ORES.get(AstraStone.MARS).get().defaultBlockState()),
+                OreConfiguration.target(new BlockMatchTest(ModBlocks.VENUS_SAND.get()), SpaceBlocks.SAND_ORES.get(AstraStone.VENUS).get().defaultBlockState())
         ), "space_oil_sand", 4, 40, 120, 24);
     }
 
@@ -69,7 +63,7 @@ public class SpaceFeatures {
         final List<OreConfiguration.TargetBlockState> oreReplacements = new ArrayList<>();
 
         for(AstraStone stone: ore.getStones()) {
-            ThermalSpaceBlocks.ORES.get(stone).get(ore).ifPresent(oreBlock ->
+            SpaceBlocks.ORES.get(stone).get(ore).ifPresent(oreBlock ->
                     oreReplacements.add(OreConfiguration.target(stone.getTag(), oreBlock.defaultBlockState())));
         }
 
