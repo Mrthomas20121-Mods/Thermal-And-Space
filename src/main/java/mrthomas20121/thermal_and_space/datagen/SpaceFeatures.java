@@ -45,17 +45,17 @@ public class SpaceFeatures {
         createOreFeature(featureMap, getOreReplacements(ThermalOre.APATITE), "space_apatite", 3, -16, 120, 9);
         createOreFeature(featureMap, getOreReplacements(ThermalOre.CINNABAR), "space_cinnabar", 1, -16, 90, 5);
         createOreFeature(featureMap, getOreReplacements(ThermalOre.NITER), "space_niter", 2, -16, 90, 7);
-        createOreFeature(featureMap, getOreReplacements(ThermalOre.SULFUR), "space_sulfur", 2, -16, 62, 7);
-        createOreFeature(featureMap, getOreReplacements(ThermalOre.TIN), "space_tin", 6, -60, 60, 9);
+        createOreFeature(featureMap, getOreReplacements(ThermalOre.SULFUR), "space_sulfur", 8, -16, 120, 10);
+        createOreFeature(featureMap, getOreReplacements(ThermalOre.TIN), "space_tin", 6, -20, 120, 10);
         createOreFeature(featureMap, getOreReplacements(ThermalOre.LEAD), "space_lead", 6, -20, 80, 9);
-        createOreFeature(featureMap, getOreReplacements(ThermalOre.SILVER), "space_silver", 4, -60, 50, 8);
-        createOreFeature(featureMap, getOreReplacements(ThermalOre.NICKEL), "space_nickel", 4, -40, 120, 8);
+        createOreFeature(featureMap, getOreReplacements(ThermalOre.SILVER), "space_silver", 5, -60, 50, 8);
+        createOreFeature(featureMap, getOreReplacements(ThermalOre.NICKEL), "space_nickel", 5, -40, 120, 8);
 
         createOreFeature(featureMap, List.of(
                 OreConfiguration.target(new BlockMatchTest(ModBlocks.MOON_SAND.get()), SpaceBlocks.SAND_ORES.get(AstraStone.MOON).get().defaultBlockState()),
                 OreConfiguration.target(new BlockMatchTest(ModBlocks.MARS_SAND.get()), SpaceBlocks.SAND_ORES.get(AstraStone.MARS).get().defaultBlockState()),
                 OreConfiguration.target(new BlockMatchTest(ModBlocks.VENUS_SAND.get()), SpaceBlocks.SAND_ORES.get(AstraStone.VENUS).get().defaultBlockState())
-        ), "space_oil_sand", 4, 40, 120, 24);
+        ), "space_oil_sand", 6, 40, 120, 24);
     }
 
     public static List<OreConfiguration.TargetBlockState> getOreReplacements(ThermalOre ore) {

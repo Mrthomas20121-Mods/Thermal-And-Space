@@ -29,7 +29,8 @@ public class SpaceLoot extends LootTableProviderCoFH {
             blockLootTables.put(SpaceBlocks.ORES.get(stone).get(ThermalOre.NICKEL).get(), this.getSilkTouchOreTable(SpaceBlocks.ORES.get(stone).get(ThermalOre.NICKEL).get(), regItems.get("raw_nickel").asItem()));
             blockLootTables.put(SpaceBlocks.ORES.get(stone).get(ThermalOre.TIN).get(), this.getSilkTouchOreTable(SpaceBlocks.ORES.get(stone).get(ThermalOre.TIN).get(), regItems.get("raw_tin").asItem()));
             blockLootTables.put(SpaceBlocks.ORES.get(stone).get(ThermalOre.SILVER).get(), this.getSilkTouchOreTable(SpaceBlocks.ORES.get(stone).get(ThermalOre.SILVER).get(), regItems.get("raw_silver").asItem()));
-            //blockLootTables.put(SpaceBlocks.ORES.get(stone).get(ThermalOre.SULFUR).get(), this.getSilkTouchOreTable(SpaceBlocks.ORES.get(stone).get(ThermalOre.SULFUR).get(), regItems.get("sulfur").asItem()));
+            blockLootTables.put(SpaceBlocks.ORES.get(stone).get(ThermalOre.SULFUR).get(), this.getSilkTouchOreTable(SpaceBlocks.ORES.get(stone).get(ThermalOre.SULFUR).get(), regItems.get("sulfur").asItem()));
+            blockLootTables.put(SpaceBlocks.ORES.get(stone).get(ThermalOre.NITER).get(), this.getSilkTouchOreTable(SpaceBlocks.ORES.get(stone).get(ThermalOre.NITER).get(), regItems.get("niter").asItem()));
             blockLootTables.put(SpaceBlocks.ORES.get(stone).get(ThermalOre.RUBY).get(), this.getSilkTouchOreTable(SpaceBlocks.ORES.get(stone).get(ThermalOre.RUBY).get(), regItems.get("ruby").asItem()));
             blockLootTables.put(SpaceBlocks.ORES.get(stone).get(ThermalOre.SAPPHIRE).get(), this.getSilkTouchOreTable(SpaceBlocks.ORES.get(stone).get(ThermalOre.SAPPHIRE).get(), regItems.get("sapphire").asItem()));
             blockLootTables.put(SpaceBlocks.ORES.get(stone).get(ThermalOre.CINNABAR).get(), this.getSilkTouchOreTable(SpaceBlocks.ORES.get(stone).get(ThermalOre.CINNABAR).get(), regItems.get("cinnabar").asItem()));
