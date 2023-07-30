@@ -10,7 +10,7 @@ import java.util.Locale;
 
 public enum ThermalOre {
     APATITE(AstraStone.MOON, AstraStone.MARS, AstraStone.VENUS),
-    CINNABAR(AstraStone.MOON, AstraStone.MARS, AstraStone.VENUS),
+    CINNABAR(AstraStone.MERCURY, AstraStone.MARS, AstraStone.VENUS),
     LEAD(AstraStone.VENUS, AstraStone.GLACIO, AstraStone.MARS),
     NICKEL(AstraStone.MERCURY, AstraStone.MOON),
     NITER(AstraStone.MERCURY, AstraStone.GLACIO, AstraStone.MOON),
