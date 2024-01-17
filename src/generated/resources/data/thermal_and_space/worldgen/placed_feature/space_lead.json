@@ -2,10 +2,6 @@
   "feature": "thermal_and_space:space_lead",
   "placement": [
     {
-      "type": "thermal:config",
-      "config": "space_lead"
-    },
-    {
       "type": "minecraft:count",
       "count": 9
     },

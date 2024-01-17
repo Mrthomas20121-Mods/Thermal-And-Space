@@ -2,10 +2,6 @@
   "feature": "thermal_and_space:space_tin",
   "placement": [
     {
-      "type": "thermal:config",
-      "config": "space_tin"
-    },
-    {
       "type": "minecraft:count",
       "count": 10
     },

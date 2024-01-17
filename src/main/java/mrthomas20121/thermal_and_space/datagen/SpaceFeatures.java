@@ -10,6 +10,7 @@ import net.minecraft.core.HolderGetter;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BootstapContext;
 import net.minecraft.data.worldgen.features.FeatureUtils;
+import net.minecraft.data.worldgen.placement.OrePlacements;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.levelgen.VerticalAnchor;
@@ -120,7 +121,6 @@ public class SpaceFeatures {
         private static PlacedFeature placedOreTriangle(HolderGetter<ConfiguredFeature<?, ?>> getter, ResourceKey<ConfiguredFeature<?, ?>> ore, String name, int minY, int maxY, int count) {
 
             return registerPlacedFeature(getter, ore,
-                    new ConfigPlacementFilter(name),
                     CountPlacement.of(count),
                     InSquarePlacement.spread(),
                     HeightRangePlacement.triangle(VerticalAnchor.absolute(minY), VerticalAnchor.absolute(maxY)),
@@ -130,7 +130,6 @@ public class SpaceFeatures {
         private static PlacedFeature placedOreUniform(HolderGetter<ConfiguredFeature<?, ?>> getter, ResourceKey<ConfiguredFeature<?, ?>> ore, String name, int minY, int maxY, int count) {
 
             return registerPlacedFeature(getter, ore,
-                    new ConfigPlacementFilter(name),
                     CountPlacement.of(count),
                     InSquarePlacement.spread(),
                     HeightRangePlacement.uniform(VerticalAnchor.absolute(minY), VerticalAnchor.absolute(maxY)),

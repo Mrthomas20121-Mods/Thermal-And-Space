@@ -2,10 +2,6 @@
   "feature": "thermal_and_space:space_oil_sand",
   "placement": [
     {
-      "type": "thermal:config",
-      "config": "space_oil_sand"
-    },
-    {
       "type": "minecraft:count",
       "count": 24
     },

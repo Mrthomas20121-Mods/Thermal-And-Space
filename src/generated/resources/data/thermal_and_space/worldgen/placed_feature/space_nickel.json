@@ -2,10 +2,6 @@
   "feature": "thermal_and_space:space_nickel",
   "placement": [
     {
-      "type": "thermal:config",
-      "config": "space_nickel"
-    },
-    {
       "type": "minecraft:count",
       "count": 8
     },

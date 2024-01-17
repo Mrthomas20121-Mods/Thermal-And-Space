@@ -16,6 +16,5 @@ public class SpaceLootGen extends LootTableProviderCoFH {
                 new LootTableProvider.SubProviderEntry(SpaceLootProvider::new, LootContextParamSets.BLOCK)
         ));
     }
-
 }
 

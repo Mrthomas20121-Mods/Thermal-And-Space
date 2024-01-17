@@ -2,10 +2,6 @@
   "feature": "thermal_and_space:space_sulfur",
   "placement": [
     {
-      "type": "thermal:config",
-      "config": "space_sulfur"
-    },
-    {
       "type": "minecraft:count",
       "count": 10
     },

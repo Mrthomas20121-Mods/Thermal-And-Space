@@ -2,10 +2,6 @@
   "feature": "thermal_and_space:space_cinnabar",
   "placement": [
     {
-      "type": "thermal:config",
-      "config": "space_cinnabar"
-    },
-    {
       "type": "minecraft:count",
       "count": 6
     },
