@@ -1,6 +1,7 @@
 package mrthomas20121.thermal_and_space.datagen;
 
 import cofh.thermal.foundation.init.data.worldgen.TFndBiomeModifiers;
+import mrthomas20121.thermal_and_space.ThermalAndSpace;
 import net.minecraft.core.HolderSet;
 import net.minecraft.core.Registry;
 import net.minecraft.core.RegistryAccess;
@@ -39,7 +40,7 @@ public class SpaceBiomeModifiers {
 
     private static ResourceKey<BiomeModifier> createKey(String name) {
 
-        return ResourceKey.create(ForgeRegistries.Keys.BIOME_MODIFIERS, new ResourceLocation(ID_THERMAL, name));
+        return ResourceKey.create(ForgeRegistries.Keys.BIOME_MODIFIERS, new ResourceLocation(ThermalAndSpace.MOD_ID, name));
     }
 
     public static void bootstrap(BootstapContext<BiomeModifier> context) {
