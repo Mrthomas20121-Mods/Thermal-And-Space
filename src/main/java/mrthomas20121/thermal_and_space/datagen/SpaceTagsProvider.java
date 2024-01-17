@@ -2,25 +2,29 @@ package mrthomas20121.thermal_and_space.datagen;
 
 import mrthomas20121.thermal_and_space.ThermalAndSpace;
 import mrthomas20121.thermal_and_space.init.AstraStone;
-import mrthomas20121.thermal_and_space.init.ThermalOre;
 import mrthomas20121.thermal_and_space.init.SpaceBlocks;
+import mrthomas20121.thermal_and_space.init.ThermalOre;
+import net.minecraft.core.HolderLookup;
 import net.minecraft.data.DataGenerator;
-import net.minecraft.data.tags.BlockTagsProvider;
+import net.minecraft.data.PackOutput;
 import net.minecraft.data.tags.ItemTagsProvider;
 import net.minecraft.tags.BlockTags;
+import net.minecraftforge.common.data.BlockTagsProvider;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import org.jetbrains.annotations.Nullable;
+
+import java.util.concurrent.CompletableFuture;
 
 public class SpaceTagsProvider {
 
     public static class Block extends BlockTagsProvider {
 
-        public Block(DataGenerator generator, @Nullable ExistingFileHelper existingFileHelper) {
-            super(generator, ThermalAndSpace.MOD_ID, existingFileHelper);
+        public Block(PackOutput output, CompletableFuture<HolderLookup.Provider> lookupProvider, @Nullable ExistingFileHelper existingFileHelper) {
+            super(output, lookupProvider, ThermalAndSpace.MOD_ID, existingFileHelper);
         }
 
         @Override
-        protected void addTags() {
+        protected void addTags(HolderLookup.Provider pProvider) {
             ThermalOre[] ores = ThermalOre.values();
             AstraStone[] stones = AstraStone.values();
 
@@ -44,12 +48,12 @@ public class SpaceTagsProvider {
 
     public static class Item extends ItemTagsProvider {
 
-        public Item(DataGenerator p_126530_, BlockTagsProvider p_126531_, @Nullable ExistingFileHelper existingFileHelper) {
-            super(p_126530_, p_126531_, "thermal", existingFileHelper);
+        public Item(PackOutput packOutput, CompletableFuture<HolderLookup.Provider> pLookupProvider, BlockTagsProvider blockTagsProvider, @Nullable ExistingFileHelper existingFileHelper) {
+            super(packOutput, pLookupProvider, blockTagsProvider.contentsGetter());
         }
 
         @Override
-        protected void addTags() {
+        protected void addTags(HolderLookup.Provider pProvider) {
             ThermalOre[] ores = ThermalOre.values();
             AstraStone[] stones = AstraStone.values();
 

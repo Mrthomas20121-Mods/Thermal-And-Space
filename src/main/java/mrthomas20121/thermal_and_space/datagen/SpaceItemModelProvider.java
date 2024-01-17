@@ -1,16 +1,16 @@
 package mrthomas20121.thermal_and_space.datagen;
 
-import cofh.lib.data.ItemModelProviderCoFH;
+import cofh.lib.init.data.ItemModelProviderCoFH;
 import mrthomas20121.thermal_and_space.ThermalAndSpace;
 import mrthomas20121.thermal_and_space.init.AstraStone;
-import mrthomas20121.thermal_and_space.init.ThermalOre;
 import mrthomas20121.thermal_and_space.init.SpaceBlocks;
-import net.minecraft.data.DataGenerator;
+import mrthomas20121.thermal_and_space.init.ThermalOre;
+import net.minecraft.data.PackOutput;
 import net.minecraftforge.common.data.ExistingFileHelper;
 
 public class SpaceItemModelProvider extends ItemModelProviderCoFH {
 
-    public SpaceItemModelProvider(DataGenerator generator, ExistingFileHelper existingFileHelper) {
+    public SpaceItemModelProvider(PackOutput generator, ExistingFileHelper existingFileHelper) {
         super(generator, ThermalAndSpace.MOD_ID, existingFileHelper);
     }
 

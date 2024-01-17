@@ -45,5 +45,6 @@
       ],
       "rolls": 1.0
     }
-  ]
+  ],
+  "random_sequence": "thermal_and_space:blocks/mercury_nickel_ore"
 }

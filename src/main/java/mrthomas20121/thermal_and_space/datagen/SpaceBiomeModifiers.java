@@ -1,18 +1,19 @@
 package mrthomas20121.thermal_and_space.datagen;
 
-import com.google.gson.JsonElement;
+import cofh.thermal.foundation.init.data.worldgen.TFndBiomeModifiers;
 import net.minecraft.core.HolderSet;
 import net.minecraft.core.Registry;
 import net.minecraft.core.RegistryAccess;
-import net.minecraft.data.DataGenerator;
-import net.minecraft.resources.RegistryOps;
+import net.minecraft.core.registries.Registries;
+import net.minecraft.data.worldgen.BootstapContext;
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.tags.BiomeTags;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.levelgen.GenerationStep;
 import net.minecraft.world.level.levelgen.placement.PlacedFeature;
-import net.minecraftforge.common.data.ExistingFileHelper;
-import net.minecraftforge.common.data.JsonCodecProvider;
 import net.minecraftforge.common.world.BiomeModifier;
+import net.minecraftforge.common.world.ForgeBiomeModifiers;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.holdersets.AnyHolderSet;
 
@@ -20,44 +21,45 @@ import java.util.HashMap;
 import java.util.Map;
 
 import static cofh.lib.util.constants.ModIds.ID_THERMAL;
-import static cofh.lib.util.helpers.DatapackHelper.datapackProvider;
-import static cofh.thermal.lib.FeatureHelper.addFeatureToBiomes;
+import static net.minecraft.world.level.levelgen.GenerationStep.Decoration.UNDERGROUND_ORES;
 
 public class SpaceBiomeModifiers {
 
-    public static JsonCodecProvider<BiomeModifier> dataGenBiomeModifiers(DataGenerator gen, ExistingFileHelper exFileHelper, RegistryOps<JsonElement> regOps) {
+    public static final ResourceKey<BiomeModifier> SPACE_APATITE_ORE = createKey("space_ore_apatite");
+    public static final ResourceKey<BiomeModifier> SPACE_CINNABAR_ORE = createKey("space_ore_cinnabar");
+    public static final ResourceKey<BiomeModifier> SPACE_NITER_ORE = createKey("space_ore_niter");
+    public static final ResourceKey<BiomeModifier> SPACE_SULFUR_ORE = createKey("space_ore_sulfur");
 
-        return datapackProvider(ID_THERMAL, gen, exFileHelper, regOps, ForgeRegistries.Keys.BIOME_MODIFIERS, generateBiomeModifiers(regOps.registryAccess));
+    public static final ResourceKey<BiomeModifier> SPACE_LEAD_ORE = createKey("space_ore_lead");
+    public static final ResourceKey<BiomeModifier> SPACE_NICKEL_ORE = createKey("space_ore_nickel");
+    public static final ResourceKey<BiomeModifier> SPACE_SILVER_ORE = createKey("space_ore_silver");
+    public static final ResourceKey<BiomeModifier> SPACE_TIN_ORE = createKey("space_ore_tin");
+
+    public static final ResourceKey<BiomeModifier> SPACE_OIL_SAND = createKey("space_oil_sand");
+
+    private static ResourceKey<BiomeModifier> createKey(String name) {
+
+        return ResourceKey.create(ForgeRegistries.Keys.BIOME_MODIFIERS, new ResourceLocation(ID_THERMAL, name));
     }
 
-    private static Map<ResourceLocation, BiomeModifier> generateBiomeModifiers(RegistryAccess registryAccess) {
+    public static void bootstrap(BootstapContext<BiomeModifier> context) {
+        var isOverworldTag = context.lookup(Registries.BIOME).getOrThrow(BiomeTags.IS_OVERWORLD);
 
-        Map<ResourceLocation, BiomeModifier> biomeModifierMap = new HashMap<>();
+        registerOre(context, SPACE_APATITE_ORE, isOverworldTag, SpaceFeatures.Placed.SPACE_APATITE);
+        registerOre(context, SPACE_CINNABAR_ORE, isOverworldTag, SpaceFeatures.Placed.SPACE_CINNABAR);
+        registerOre(context, SPACE_NITER_ORE, isOverworldTag, SpaceFeatures.Placed.SPACE_NITER);
+        registerOre(context, SPACE_SULFUR_ORE, isOverworldTag, SpaceFeatures.Placed.SPACE_SULFUR);
 
-        generateBiomeOres(registryAccess.registryOrThrow(Registry.BIOME_REGISTRY), registryAccess.registryOrThrow(Registry.PLACED_FEATURE_REGISTRY), biomeModifierMap);
-
-        return biomeModifierMap;
+        registerOre(context, SPACE_LEAD_ORE, isOverworldTag, SpaceFeatures.Placed.SPACE_LEAD);
+        registerOre(context, SPACE_NICKEL_ORE, isOverworldTag, SpaceFeatures.Placed.SPACE_NICKEL);
+        registerOre(context, SPACE_SILVER_ORE, isOverworldTag, SpaceFeatures.Placed.SPACE_SILVER);
+        registerOre(context, SPACE_TIN_ORE, isOverworldTag, SpaceFeatures.Placed.SPACE_TIN);
     }
 
-    private static void generateBiomeOres(Registry<Biome> biomeRegistry, Registry<PlacedFeature> placedFeatureRegistry, Map<ResourceLocation, BiomeModifier> map) {
+    private static void registerOre(BootstapContext<BiomeModifier> context, ResourceKey<BiomeModifier> biomeMod, HolderSet<Biome> biomes, ResourceKey<PlacedFeature> feature) {
 
-        HolderSet<Biome> allBiomes = new AnyHolderSet<>(biomeRegistry);
-
-        addOreToBiomeGen(map, "space_apatite", allBiomes, placedFeatureRegistry);
-        addOreToBiomeGen(map, "space_cinnabar", allBiomes, placedFeatureRegistry);
-        addOreToBiomeGen(map, "space_niter", allBiomes, placedFeatureRegistry);
-        addOreToBiomeGen(map, "space_sulfur", allBiomes, placedFeatureRegistry);
-
-        addOreToBiomeGen(map, "space_tin", allBiomes, placedFeatureRegistry);
-        addOreToBiomeGen(map, "space_lead", allBiomes, placedFeatureRegistry);
-        addOreToBiomeGen(map, "space_silver", allBiomes, placedFeatureRegistry);
-        addOreToBiomeGen(map, "space_nickel", allBiomes, placedFeatureRegistry);
-
-        addOreToBiomeGen(map, "space_oil_sand", allBiomes, placedFeatureRegistry);
-    }
-
-    public static void addOreToBiomeGen(Map<ResourceLocation, BiomeModifier> map, String name, HolderSet<Biome> biomes, Registry<PlacedFeature> placedFeatureRegistry) {
-
-        map.put(new ResourceLocation(ID_THERMAL, name + "_biome_spawns"), addFeatureToBiomes(name, biomes, placedFeatureRegistry, GenerationStep.Decoration.UNDERGROUND_ORES));
+        context.register(biomeMod, new ForgeBiomeModifiers.AddFeaturesBiomeModifier(biomes,
+                HolderSet.direct(context.lookup(Registries.PLACED_FEATURE).getOrThrow(feature)),
+                UNDERGROUND_ORES));
     }
 }

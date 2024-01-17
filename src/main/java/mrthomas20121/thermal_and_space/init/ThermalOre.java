@@ -1,7 +1,7 @@
 package mrthomas20121.thermal_and_space.init;
 
-import cofh.lib.tags.BlockTagsCoFH;
-import cofh.lib.tags.ItemTagsCoFH;
+import cofh.lib.init.tags.BlockTagsCoFH;
+import cofh.lib.init.tags.ItemTagsCoFH;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;

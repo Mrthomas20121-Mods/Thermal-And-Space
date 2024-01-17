@@ -1,0 +1,36 @@
+{
+  "type": "minecraft:ore",
+  "config": {
+    "discard_chance_on_air_exposure": 0.0,
+    "size": 9,
+    "targets": [
+      {
+        "state": {
+          "Name": "thermal_and_space:moon_apatite_ore"
+        },
+        "target": {
+          "predicate_type": "minecraft:tag_match",
+          "tag": "ad_astra:moon_ore_replaceables"
+        }
+      },
+      {
+        "state": {
+          "Name": "thermal_and_space:mars_apatite_ore"
+        },
+        "target": {
+          "predicate_type": "minecraft:tag_match",
+          "tag": "ad_astra:mars_ore_replaceables"
+        }
+      },
+      {
+        "state": {
+          "Name": "thermal_and_space:venus_apatite_ore"
+        },
+        "target": {
+          "predicate_type": "minecraft:tag_match",
+          "tag": "ad_astra:venus_ore_replaceables"
+        }
+      }
+    ]
+  }
+}

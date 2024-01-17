@@ -5,6 +5,7 @@ import mrthomas20121.thermal_and_space.init.AstraStone;
 import mrthomas20121.thermal_and_space.init.ThermalOre;
 import mrthomas20121.thermal_and_space.init.SpaceBlocks;
 import net.minecraft.data.DataGenerator;
+import net.minecraft.data.PackOutput;
 import net.minecraftforge.common.data.LanguageProvider;
 import org.apache.commons.lang3.StringUtils;
 
@@ -12,7 +13,7 @@ import java.util.Locale;
 
 public class SpaceLangProvider extends LanguageProvider {
 
-    public SpaceLangProvider(DataGenerator gen) {
+    public SpaceLangProvider(PackOutput gen) {
         super(gen, ThermalAndSpace.MOD_ID, "en_us");
     }
 
