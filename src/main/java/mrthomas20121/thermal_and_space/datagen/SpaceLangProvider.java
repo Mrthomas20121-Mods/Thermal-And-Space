@@ -19,6 +19,9 @@ public class SpaceLangProvider extends LanguageProvider {
 
     @Override
     protected void addTranslations() {
+
+        this.add("creative_tab.thermal_and_space.ores", "Thermal And Space Ores");
+
         ThermalOre[] ores = ThermalOre.values();
         AstraStone[] stones = AstraStone.values();
 

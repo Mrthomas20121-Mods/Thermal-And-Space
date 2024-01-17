@@ -2,6 +2,7 @@ package mrthomas20121.thermal_and_space.datagen;
 
 import cofh.thermal.foundation.init.data.worldgen.TFndBiomeModifiers;
 import mrthomas20121.thermal_and_space.ThermalAndSpace;
+import mrthomas20121.thermal_and_space.init.SpaceTags;
 import net.minecraft.core.HolderSet;
 import net.minecraft.core.Registry;
 import net.minecraft.core.RegistryAccess;
@@ -44,17 +45,19 @@ public class SpaceBiomeModifiers {
     }
 
     public static void bootstrap(BootstapContext<BiomeModifier> context) {
-        var isOverworldTag = context.lookup(Registries.BIOME).getOrThrow(BiomeTags.IS_OVERWORLD);
+        var isAdAstra = context.lookup(Registries.BIOME).getOrThrow(SpaceTags.ad_adstra_biomes);
 
-        registerOre(context, SPACE_APATITE_ORE, isOverworldTag, SpaceFeatures.Placed.SPACE_APATITE);
-        registerOre(context, SPACE_CINNABAR_ORE, isOverworldTag, SpaceFeatures.Placed.SPACE_CINNABAR);
-        registerOre(context, SPACE_NITER_ORE, isOverworldTag, SpaceFeatures.Placed.SPACE_NITER);
-        registerOre(context, SPACE_SULFUR_ORE, isOverworldTag, SpaceFeatures.Placed.SPACE_SULFUR);
+        registerOre(context, SPACE_APATITE_ORE, isAdAstra, SpaceFeatures.Placed.SPACE_APATITE);
+        registerOre(context, SPACE_CINNABAR_ORE, isAdAstra, SpaceFeatures.Placed.SPACE_CINNABAR);
+        registerOre(context, SPACE_NITER_ORE, isAdAstra, SpaceFeatures.Placed.SPACE_NITER);
+        registerOre(context, SPACE_SULFUR_ORE, isAdAstra, SpaceFeatures.Placed.SPACE_SULFUR);
 
-        registerOre(context, SPACE_LEAD_ORE, isOverworldTag, SpaceFeatures.Placed.SPACE_LEAD);
-        registerOre(context, SPACE_NICKEL_ORE, isOverworldTag, SpaceFeatures.Placed.SPACE_NICKEL);
-        registerOre(context, SPACE_SILVER_ORE, isOverworldTag, SpaceFeatures.Placed.SPACE_SILVER);
-        registerOre(context, SPACE_TIN_ORE, isOverworldTag, SpaceFeatures.Placed.SPACE_TIN);
+        registerOre(context, SPACE_LEAD_ORE, isAdAstra, SpaceFeatures.Placed.SPACE_LEAD);
+        registerOre(context, SPACE_NICKEL_ORE, isAdAstra, SpaceFeatures.Placed.SPACE_NICKEL);
+        registerOre(context, SPACE_SILVER_ORE, isAdAstra, SpaceFeatures.Placed.SPACE_SILVER);
+        registerOre(context, SPACE_TIN_ORE, isAdAstra, SpaceFeatures.Placed.SPACE_TIN);
+
+        registerOre(context, SPACE_OIL_SAND, isAdAstra, SpaceFeatures.Placed.SPACE_OIL_SAND);
     }
 
     private static void registerOre(BootstapContext<BiomeModifier> context, ResourceKey<BiomeModifier> biomeMod, HolderSet<Biome> biomes, ResourceKey<PlacedFeature> feature) {

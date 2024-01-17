@@ -5,7 +5,7 @@ plugins {
 
 version = mod_version
 group = 'mrthomas20121.thermal_and_space'
-archivesBaseName = 'Thermal And Space 1.19.2'
+archivesBaseName = 'Thermal And Space'
 
 java.toolchain.languageVersion = JavaLanguageVersion.of(17)
 

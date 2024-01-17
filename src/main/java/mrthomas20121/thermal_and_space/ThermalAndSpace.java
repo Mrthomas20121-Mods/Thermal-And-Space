@@ -4,6 +4,7 @@ import com.google.gson.JsonElement;
 import com.mojang.serialization.JsonOps;
 import mrthomas20121.thermal_and_space.datagen.*;
 import mrthomas20121.thermal_and_space.init.SpaceBlocks;
+import mrthomas20121.thermal_and_space.init.SpaceCreativeTabs;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.RegistryAccess;
 import net.minecraft.data.DataGenerator;
@@ -31,6 +32,7 @@ public class ThermalAndSpace {
 		IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
 		SpaceBlocks.BLOCKS.register(bus);
 		SpaceBlocks.ITEMS.register(bus);
+		SpaceCreativeTabs.CREATIVE_TABS.register(bus);
 	}
 
 	@SubscribeEvent

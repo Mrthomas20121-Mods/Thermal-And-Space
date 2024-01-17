@@ -51,5 +51,6 @@
   "block.thermal_and_space.venus_sapphire_ore": "Venus Sapphire Ore",
   "block.thermal_and_space.venus_silver_ore": "Venus Silver Ore",
   "block.thermal_and_space.venus_sulfur_ore": "Venus Sulfur Ore",
-  "block.thermal_and_space.venus_tin_ore": "Venus Tin Ore"
+  "block.thermal_and_space.venus_tin_ore": "Venus Tin Ore",
+  "creative_tab.thermal_and_space.ores": "Thermal And Space Ores"
 }

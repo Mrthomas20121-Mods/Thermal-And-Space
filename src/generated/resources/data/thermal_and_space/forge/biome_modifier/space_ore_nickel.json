@@ -1,6 +1,6 @@
 {
   "type": "forge:add_features",
-  "biomes": "#minecraft:is_overworld",
+  "biomes": "#ad_astra:stone_biomes",
   "features": "thermal_and_space:space_nickel",
   "step": "underground_ores"
 }

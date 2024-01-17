@@ -1,6 +1,6 @@
 {
   "type": "forge:add_features",
   "biomes": "#ad_astra:stone_biomes",
-  "features": "thermal_and_space:space_silver",
+  "features": "thermal_and_space:space_oil_sand",
   "step": "underground_ores"
 }

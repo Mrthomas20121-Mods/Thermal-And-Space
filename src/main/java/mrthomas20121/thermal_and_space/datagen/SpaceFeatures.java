@@ -11,15 +11,21 @@ import net.minecraft.data.worldgen.BootstapContext;
 import net.minecraft.data.worldgen.features.FeatureUtils;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.tags.BlockTags;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.levelgen.VerticalAnchor;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.configurations.OreConfiguration;
 import net.minecraft.world.level.levelgen.placement.*;
 import net.minecraft.world.level.levelgen.structure.templatesystem.BlockMatchTest;
+import net.minecraft.world.level.levelgen.structure.templatesystem.TagMatchTest;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
+
+import static cofh.thermal.core.ThermalCore.BLOCKS;
 
 public class SpaceFeatures {
 
@@ -66,7 +72,9 @@ public class SpaceFeatures {
                     ), 24));
         }
 
-        public static List<OreConfiguration.TargetBlockState> getOreReplacements(ThermalOre ore) {
+        private static TagMatchTest deepslateMatch = new TagMatchTest(BlockTags.DEEPSLATE_ORE_REPLACEABLES);
+
+        private static List<OreConfiguration.TargetBlockState> getOreReplacements(ThermalOre ore) {
 
             final List<OreConfiguration.TargetBlockState> oreReplacements = new ArrayList<>();
 
@@ -74,6 +82,8 @@ public class SpaceFeatures {
                 SpaceBlocks.ORES.get(stone).get(ore).ifPresent(oreBlock ->
                         oreReplacements.add(OreConfiguration.target(stone.getTag(), oreBlock.defaultBlockState())));
             }
+
+            oreReplacements.add(OreConfiguration.target(deepslateMatch, BLOCKS.get(ore.name().toLowerCase(Locale.ROOT)+"_ore").defaultBlockState()));
 
             return oreReplacements;
         }
@@ -108,7 +118,7 @@ public class SpaceFeatures {
             context.register(SPACE_SILVER, placedOreUniform(configuredFeatures, Configured.SPACE_SILVER, "space_silver", -60, 100, 8));
             context.register(SPACE_NICKEL, placedOreUniform(configuredFeatures, Configured.SPACE_NICKEL, "space_nickel", -40, 120, 8));
 
-            context.register(SPACE_OIL_SAND, placedOreUniform(configuredFeatures, Configured.SPACE_OIL_SAND, "space_oil_sand", 40, 120, 24));
+            context.register(SPACE_OIL_SAND, placedOreUniform(configuredFeatures, Configured.SPACE_OIL_SAND, "space_oil_sand", 40, 120, 18));
         }
 
         private static PlacedFeature registerPlacedFeature(HolderGetter<ConfiguredFeature<?, ?>> getter, ResourceKey<ConfiguredFeature<?, ?>> feature, PlacementModifier... modifiers) {

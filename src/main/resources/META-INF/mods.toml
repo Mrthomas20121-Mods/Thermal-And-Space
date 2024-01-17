@@ -5,7 +5,7 @@ issueTrackerURL = "https://github.com/Mrthomas20121/ThermalExtra/issues"
 
 [[mods]]
 modId = "thermal_and_space"
-version = "1.0.0"
+version = "1.20.1-1.0.1"
 displayName = "Thermal And Space"
 displayURL = "https://www.curseforge.com/minecraft/mc-mods/thermal_and_space"
 #logoFile="tinkers_reforged_logo.png"
