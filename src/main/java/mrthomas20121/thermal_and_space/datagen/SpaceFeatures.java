@@ -1,6 +1,5 @@
 package mrthomas20121.thermal_and_space.datagen;
 
-import cofh.thermal.core.common.world.ConfigPlacementFilter;
 import earth.terrarium.ad_astra.common.registry.ModBlocks;
 import mrthomas20121.thermal_and_space.ThermalAndSpace;
 import mrthomas20121.thermal_and_space.init.AstraStone;
@@ -10,7 +9,6 @@ import net.minecraft.core.HolderGetter;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BootstapContext;
 import net.minecraft.data.worldgen.features.FeatureUtils;
-import net.minecraft.data.worldgen.placement.OrePlacements;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.levelgen.VerticalAnchor;
@@ -107,7 +105,7 @@ public class SpaceFeatures {
             context.register(SPACE_SULFUR, placedOreTriangle(configuredFeatures, Configured.SPACE_SULFUR, "space_sulfur", -16, 120, 10));
             context.register(SPACE_TIN, placedOreUniform(configuredFeatures, Configured.SPACE_TIN, "space_tin", -20, 120, 10));
             context.register(SPACE_LEAD, placedOreUniform(configuredFeatures, Configured.SPACE_LEAD, "space_lead", -20, 80, 9));
-            context.register(SPACE_SILVER, placedOreUniform(configuredFeatures, Configured.SPACE_SILVER, "space_silver", -60, 50, 8));
+            context.register(SPACE_SILVER, placedOreUniform(configuredFeatures, Configured.SPACE_SILVER, "space_silver", -60, 100, 8));
             context.register(SPACE_NICKEL, placedOreUniform(configuredFeatures, Configured.SPACE_NICKEL, "space_nickel", -40, 120, 8));
 
             context.register(SPACE_OIL_SAND, placedOreUniform(configuredFeatures, Configured.SPACE_OIL_SAND, "space_oil_sand", 40, 120, 24));
